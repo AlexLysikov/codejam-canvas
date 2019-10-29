@@ -1,0 +1,108 @@
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    background-color: blanchedalmond;
+    font-family: "Roboto", sans-serif;
+}
+
+ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
+    &__menu {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        & h1 {
+            display: block;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin: 0 0 0 5vh;
+        }
+        & svg:first-child {
+            width: 30px;
+            height: 30px;
+            margin-left: 20px;
+        }
+        & svg:first-child:hover {
+            opacity: 0.7;
+        }
+        & svg:last-child {
+            width: 30px;
+            height: 30px;
+            margin: 0 20px 0 auto;
+        }
+        & svg:last-child:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 5vh 0;
+    &__tools {
+        &-menu {
+            width: 80%;
+            margin: 5vh auto;
+            border: 1px solid #a5a5a5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
+            & .first, .second, .third {
+                justify-content: center;
+                border: 1px solid #a5a5a5;
+            }
+            & .first:hover, .second:hover, .third:hover {
+                background-color: rgb(245, 210, 157);
+                cursor: pointer;
+            }
+            & li {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                height: 48px;
+                & svg {
+                    margin: auto 20px;
+                }
+                & div {
+                    background-color: brown;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    margin: auto 20px;
+                }
+            }
+            & li:nth-child(2) {
+                border-bottom: 1px solid #a5a5a5;
+            }
+            
+        }
+        & .right {
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 4;
+        }
+    }
+    &__frame {
+        & canvas {
+            display: block;
+            margin: auto;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+}
