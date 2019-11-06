@@ -1,3 +1,4 @@
+/* Please use more clear names for variables */
 const first = document.querySelector('.first');
 const second = document.querySelector('.second');
 const third = document.querySelector('.third');
@@ -13,7 +14,32 @@ first.addEventListener('click', () => {
         ["FFEB3B", "FFC107", "FFC107", "FFEB3B"],
         ["00BCD4", "FFEB3B", "FFEB3B", "00BCD4"]
     ]
+/* There is the error at the console at the and of this loop 
+   The problem is that you have the array 4x4 elements
+   but you try to get the 5th element from the array.
+   0 1 2 3 4 -> (let i = 0; i < 4; i++) is correct 
+   1 2 3 4 5 
+*/
+    
+/* but anyway this solution includes some "magic numbers" -> 5 and 128.
+And using such numbers is a bad practice.
+    
 
+// It's better not to hardcode any numbers inside of the function. We can take width and hight directly from the canvas.
+// In this case, if we decided to change the canvas size, we could do it only in one place at the html file.
+    const width = canvas.width;
+    const heigth = canvas.height;
+
+// the same case for the step size. This size depends on the array size.
+    const xStep = width / jsonImg[0].length;
+    const yStep = heigth / jsonImg.length;
+    for (let i = 0; i < jsonImg.length; i++) {
+        for (let j = 0; j < jsonImg[i].length; j++) {
+            ctx.fillStyle = `#${jsonImg[i][j]}`;
+            ctx.fillRect(xStep * j, yStep * i, xStep, yStep);
+        }
+    }
+*/   
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
             ctx.fillStyle = `#${jsonImg[i][j]}`;
@@ -23,6 +49,7 @@ first.addEventListener('click', () => {
 }, false);
 
 third.addEventListener('click', () => {
+    /* use const instead */
     let img = new Image();
     img.src = './data/image.png'
     img.addEventListener('load', function () {
@@ -6241,6 +6268,7 @@ second.addEventListener('click', () => {
             ]
         ]
     ]
+// the same about "magic numbers" here
     for (let i = 0; i < 32; i++) {
         for (let j = 0; j < 32; j++) {
             ctx.fillStyle = `rgba(${jsonImg[i][j]})`;
